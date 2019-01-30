@@ -1,6 +1,7 @@
 package ru.webcrawler.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 /**
  * Created by Pavel on 26.01.2019.
@@ -12,14 +13,16 @@ public class Page {
     @GeneratedValue
     @Column(name = "id")
     private Integer id;
-    @Column(name = "url")
+    @Column(name = "url", nullable = false)
     private String url;
-    @Column(name = "text")
+    @Column(name = "text", nullable = false)
     private String text;
-    @Column(name = "CRC")
+    @Column(name = "CRC", nullable = false)
     private String CRC;
-    @Column(name = "indexed")
+    @Column(name = "indexed",nullable = false)
     private Boolean indexed;
+
+    private LocalDateTime indexDate;
 
     @Override
     public String toString() {
